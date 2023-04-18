@@ -1,4 +1,5 @@
 import pygame
+from gameObjects import GameObject
 
 class Player(GameObject):
     
