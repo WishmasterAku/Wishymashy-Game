@@ -14,7 +14,7 @@ class Game:
         self.clock = pygame.time.Clock()
         
         self.background = GameObject(0, 0, self.width, self.height, "images/green_terminal.png")
-        self.target_text = Text("Target", "Arial", 20, "white", 75, 150)
+        self.target_text = Text("Target", "Arial", 20, "green", 75, 150)
         self.player = Player(100, 100, 50, 50, "images/player.png", 2)
         
         self.target = GameObject(75,100,50, 50, "images/17.png")     
