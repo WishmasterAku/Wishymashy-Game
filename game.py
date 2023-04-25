@@ -13,7 +13,9 @@ class Game:
         self.clock = pygame.time.Clock()
         
         self.background = GameObject(0, 0, self.width, self.height, "images/background.png")
-        self.player = Player(100, 100, 50, 50, "images/player.png", 5)
+        self.player = Player(100, 100, 50, 50, "images/player.png", 2)
+        
+        
         
     def draw_objects(self):
         self.screen.fill(self.background_color)
@@ -43,6 +45,9 @@ class Game:
                         moving_player = "up"
                     elif event.key == pygame.K_DOWN:
                         moving_player = "down"
+                elif event.type == pygame.KEYUP:
+                    if event.key == pygame.K_UP or event.key == pygame.K_DOWN or event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+                        moving_player = 0
                         
                         
                     
