@@ -1,6 +1,7 @@
 import pygame
 from gameObjects import GameObject
 from player import Player
+from text import Text
 
 class Game:
     
@@ -12,16 +13,18 @@ class Game:
         self.background_color = "black"
         self.clock = pygame.time.Clock()
         
-        self.background = GameObject(0, 0, self.width, self.height, "images/background.png")
+        self.background = GameObject(0, 0, self.width, self.height, "images/green_terminal.png")
+        self.target_text = Text("Target", "Arial", 20, "white", 75, 150)
         self.player = Player(100, 100, 50, 50, "images/player.png", 2)
         
-        
-        
+        self.target = GameObject(75,100,50, 50, "images/17.png")     
+               
     def draw_objects(self):
         self.screen.fill(self.background_color)
         self.screen.blit(self.background.image, (self.background.x, self.background.y))
         self.screen.blit(self.player.image, (self.player.x, self.player.y))
-        
+        self.screen.blit(self.target.image, (self.target.x, self.target.y))
+        self.screen.blit(self.target_text.surface, (self.target_text.x, self.target_text.y))     
         pygame.display.update()   
         
     def move_objects(self, moving_player):
@@ -47,15 +50,9 @@ class Game:
                         moving_player = "down"
                 elif event.type == pygame.KEYUP:
                     if event.key == pygame.K_UP or event.key == pygame.K_DOWN or event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
-                        moving_player = 0
+                        moving_player = 0                      
                         
-                        
-                    
-                    
-                
-                    
             self.move_objects(moving_player)
-            self.draw_objects()
-                    
+            self.draw_objects()                    
                     
             self.clock.tick(60)
