@@ -1,4 +1,5 @@
 import pygame
+import random
 from gameObjects import GameObject
 from player import Player
 from text import Text
@@ -14,8 +15,8 @@ class Game:
         self.clock = pygame.time.Clock()
         
         self.background = GameObject(0, 0, self.width, self.height, "images/green_terminal.png")
-        self.target_text = Text("Target", "Arial", 20, "green", 75, 150)
-        self.player = Player(100, 100, 50, 50, "images/player.png", 2)
+        self.target_text = Text("Target", "Arial", 20, "darkgreen", 75, 150)
+        self.player = Player(400, 500, 50, 50, "images/player.png", 2)
         
         self.target = GameObject(75,100,50, 50, "images/17.png")     
                
@@ -54,5 +55,5 @@ class Game:
                         
             self.move_objects(moving_player)
             self.draw_objects()                    
-                    
+            
             self.clock.tick(60)
